@@ -1,0 +1,11 @@
+S X Y
+a b
+S S a
+S X a
+X S b
+X Y a
+Y S b
+S $ a
+
+
+
