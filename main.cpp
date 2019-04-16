@@ -8,10 +8,10 @@ using namespace std;
 
 int main()
 {
-    ifstream f,g;
+    ifstream f;
     f.open("date");
 
-    grammar G(3,2,6);
+    grammar G(3,2,6);  // (nr terminale, nr neterminale, nr tranzitii)
     f>>G;
     G.push(f);
 
@@ -19,15 +19,16 @@ int main()
     getline(cin,word);
 
     if(!G.compatibil(word))
-       return 0;
+    {   
+        cout<<"cuvantul nu e compatibil cu multimea neterminalelor";
+        return 0;
+    }
 
     if(G.generate('S',word))
         cout<<"cuvant acceptat "<<endl;
     else
         cout<<"cuvantul nu e acceptat"<<endl;
 
-
-    g.close();
     f.close();
 
   return 0;
