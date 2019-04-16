@@ -16,23 +16,25 @@ struct str
 class grammar
 {
     int nr_s; // nr neterminate
+    int nr_t; // nr terminale
     char *s;  // neterminale
-    unsigned int n; // tranzitii
-    str** v;
+    char *t;// terminalele
+    int n; // nr tranzitii
+    int *count;  // numara terminalele
+    str* v;
 
 public:
 
-    explicit grammar(int s1=0,unsigned int t=0);
-    grammar(const grammar &g);
+    explicit grammar(int t1=0,int s1=0,int n1=0);
     ~grammar();
 
     friend istream&operator>>(istream&,grammar&);
+
     void push(istream&);
     bool compatibil(string);
-    void get_pair();
-    bool verify(char,string);
-
-
+    void get_pair();  // doar pt a testa daca mi a citit bine
+    bool generate(char,string,int it=0);  // char-> terminalul de start
+    // string -> cuvantu meu, it-> de cate ori apeleaza
 };
 
 
