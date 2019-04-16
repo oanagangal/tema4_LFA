@@ -9,4 +9,5 @@ S $ a
 
 // am atasat o imagine cu afn-ul generat de gramatica asta
 // ex cuv: ababa, aaaa...aa, aba,aaaaaaabaaa..a,...
+// cuv incep cu a si se termina cu a si pot avea cate un singur b in interior pana la aparitia urmatorului a
 
