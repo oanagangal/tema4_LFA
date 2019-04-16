@@ -26,7 +26,7 @@ grammar::~grammar()
     delete[]count;
 }
 
-istream &operator>>(istream &in, grammar &g)
+istream &operator>>(istream &in, grammar &g)  // citeste terminalele si neterminalele
 {
     if(g.nr_s==0)
     {
@@ -89,14 +89,14 @@ bool grammar::generate(char start, string w, int it)
     {
 
         for ( int j = 0; j < n; j++ )
-            if (start == v[j].first && v[j].third == '$')
+            if (start == v[j].first && v[j].third == '$') // cazul in care cuv e vid si ultima tranzitie e cu $
                return true;
 
         return false;
     }
 
 
-    if(w.length()==1&&it!=0)
+    if(w.length()==1&&it!=0)  // cand nu am tranzitii cu $,ci cu litere,iar cuvantu mai are o litera
     {
         for(int j=0;j<n;j++)
             if(start==v[j].first&&v[j].second=='$'&&v[j].third==w[0])
@@ -116,23 +116,21 @@ bool grammar::generate(char start, string w, int it)
                 if (v[i].third == p)
                 {
 
-                    w.erase(0, 1);
-                    return generate(v[i].second,w,++it);
+                    w.erase(0, 1);  //sterg prima litera
+                    return generate(v[i].second,w,++it); // merg cu urmatorul terminal pe cuvant - prima litera
 
-                } else
+                } 
+                else
                 {
                     for(int r=0;r<nr_t;r++)
                         if(start==t[r]&&k==count[r])
                         {
                             if(it==1)
                                 cout<<"cuvant neacceptat"<<endl;
-
                             return false;
                         }
                     k++;
                 }
             }
-
-    }
-
+      }
 }
