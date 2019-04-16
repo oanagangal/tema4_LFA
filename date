@@ -7,5 +7,6 @@ X Y a
 Y S b
 S $ a
 
-
-
+// gramatica asta genereaza limbaj cu cuvinte care incep cu a si se termina cu a
+// si pot avea cate un b in interior,dar nu mai multi de unul pana la urmatorul a
+// ex: ababa, aaaa...aa, aba,aaaaaaabaaa..a,...
