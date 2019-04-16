@@ -9,8 +9,11 @@ struct str
 {
     char first;
     char second,third;
-};
+}; 
 
+// first = terminalul de plecare
+// second = terminalul in care ajunge
+// third = litera de tranzitie
 
 class grammar
 {
@@ -31,7 +34,7 @@ public:
 
     void push(istream&);
     bool compatibil(string);
-    void get_pair();  // doar pt a testa daca mi a citit bine
+    void get_pair();  // doar pt a testa daca mi a citit bine tranzitiile
     bool generate(char,string,int it=0);  // char-> terminalul de start
     // string -> cuvantu meu, it-> de cate ori apeleaza
 };
